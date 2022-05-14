@@ -37,16 +37,17 @@ public class Aufgabe2 {
         int digitDiff = number1.length - number2.length;
         int sum, carry = 0;
 
-        for (int i = 0; i < number1.length - digitDiff; i++) {
-            sum = Integer.parseInt(String.valueOf(number1[i])) + Integer.parseInt(String.valueOf(number2[i])) + carry;
-            resultString += String.valueOf(sum % 10);
-            carry = sum / 10;
-        }
-
-        for(int i = number1.length - digitDiff; i < number1.length; i++){
+        for (int i = 0; i < number1.length; ) {
+            while (i < number1.length - digitDiff){
+                sum = Integer.parseInt(String.valueOf(number1[i])) + Integer.parseInt(String.valueOf(number2[i])) + carry;
+                resultString += String.valueOf(sum % 10);
+                carry = sum / 10;
+                i++;
+            }
             sum = Integer.parseInt(String.valueOf(number1[i])) + carry;
             resultString += String.valueOf(sum % 10);
             carry = sum / 10;
+            i++;
         }
 
         if(carry != 0) resultString += "1";
