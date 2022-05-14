@@ -33,22 +33,23 @@ public class Aufgabe2 {
 
     static char[] add(char[] number1, char[] number2) {
 
-        String resultString = "";
+        String result = "";
         int digitDiff = number1.length - number2.length;
         int sum, carry = 0;
 
         for (int i = 0; i < number1.length; i++) {
             if(i < number1.length - digitDiff) sum = Integer.parseInt(String.valueOf(number1[i])) + Integer.parseInt(String.valueOf(number2[i])) + carry;
             else sum = Integer.parseInt(String.valueOf(number1[i])) + carry;
-            resultString += String.valueOf(sum % 10);
+            result += String.valueOf(sum % 10);
             carry = sum / 10;
         }
 
-        if(carry != 0) resultString += "1";
+        if(carry != 0) result += "1";
 
-        return resultString.toCharArray();
+        return result.toCharArray();
     }
 
+    // turns a String in a char Array with inverted order
     static char[] langeZahl(String number) {
         char[] chars = number.toCharArray();
         int left = 0;
