@@ -39,16 +39,14 @@ public class Aufgabe2 {
 
         for (int i = 0; i < number1.length - digitDiff; i++) {
             sum = Integer.parseInt(String.valueOf(number1[i])) + Integer.parseInt(String.valueOf(number2[i])) + carry;
-            if (sum > 9) carry = 1;
-            else carry = 0;
             resultString += String.valueOf(sum % 10);
+            carry = sum / 10;
         }
 
         for(int i = number1.length - digitDiff; i < number1.length; i++){
             sum = Integer.parseInt(String.valueOf(number1[i])) + carry;
-            if (sum > 9) carry = 1;
-            else carry = 0;
             resultString += String.valueOf(sum % 10);
+            carry = sum / 10;
         }
 
         if(carry != 0) resultString += "1";
